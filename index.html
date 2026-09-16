@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saurav Kumar — Full-Stack Developer</title>
+<meta name="description" content="Saurav Kumar — Full-Stack Developer specialising in React, Node.js, TypeScript and AI-integrated chatbots.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Saurav Kumar — Full-Stack Developer">
+<meta property="og:description" content="React, Node.js, TypeScript & AI-integrated chatbots. Résumé and portfolio.">
+<meta property="og:image" content="https://tisu1989.github.io/og-image.png">
+<meta property="og:url" content="https://tisu1989.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Saurav Kumar — Full-Stack Developer">
+<meta name="twitter:description" content="React, Node.js, TypeScript & AI-integrated chatbots. Résumé and portfolio.">
+<meta name="twitter:image" content="https://tisu1989.github.io/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink-dark:#16201b;
+    --ink-dark-soft:#a7b8ac;
+    --ink-dark-line:#2b3830;
+    --paper:#ffffff;
+    --paper-soft:#f6f6f2;
+    --text:#1c211d;
+    --text-soft:#5d685f;
+    --accent:#2f7a5d;
+    --accent-on-dark:#7bd3a6;
+    --accent-tint:#e4f0e9;
+    --line:#e3e1d8;
+    --radius:3px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--text);
+    font-family:'Inter', system-ui, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;}
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  .page{
+    display:grid;
+    grid-template-columns:320px 1fr;
+    min-height:100vh;
+  }
+
+  /* ---------- Sidebar ---------- */
+  .sidebar{
+    background:var(--ink-dark);
+    color:var(--ink-dark-soft);
+    padding:56px 40px 40px;
+    position:sticky;
+    top:0;
+    height:100vh;
+    overflow-y:auto;
+    display:flex;
+    flex-direction:column;
+  }
+
+  .sidebar .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    color:var(--accent-on-dark);
+    margin-bottom:18px;
+  }
+
+  .sidebar h1{
+    color:#fdfdfb;
+    font-size:34px;
+    line-height:1.15;
+    margin-bottom:10px;
+  }
+
+  .sidebar .role{
+    font-size:15px;
+    color:var(--ink-dark-soft);
+    max-width:24ch;
+    margin-bottom:28px;
+  }
+
+  .sidebar .focus{
+    font-size:13.5px;
+    line-height:1.55;
+    color:var(--ink-dark-soft);
+    border-left:2px solid var(--ink-dark-line);
+    padding-left:14px;
+    margin-bottom:36px;
+  }
+
+  .sidebar .focus strong{
+    color:#fdfdfb;
+    font-weight:500;
+  }
+
+  .contact{
+    list-style:none;
+    padding:0;
+    margin:0 0 auto 0;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    border-top:1px solid var(--ink-dark-line);
+    padding-top:24px;
+  }
+
+  .contact li{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+  }
+
+  .contact .label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    color:#6b7b70;
+  }
+
+  .contact a, .contact span.value{
+    font-size:14px;
+    color:#e7ece8;
+    text-decoration:none;
+    word-break:break-word;
+  }
+
+  .contact a:hover{
+    color:var(--accent-on-dark);
+  }
+
+  .sidebar-foot{
+    margin-top:40px;
+    padding-top:20px;
+    border-top:1px solid var(--ink-dark-line);
+    font-size:12px;
+    color:#5f6f64;
+  }
+
+  /* ---------- Main content ---------- */
+  main{
+    padding:64px 64px 100px;
+    max-width:820px;
+  }
+
+  section{
+    margin-bottom:64px;
+  }
+
+  section > h2{
+    font-size:22px;
+    color:var(--text);
+    margin-bottom:22px;
+  }
+
+  .lede{
+    font-size:19px;
+    line-height:1.65;
+    color:var(--text);
+    max-width:62ch;
+  }
+
+  .lede + .lede{
+    margin-top:14px;
+    font-size:16px;
+    color:var(--text-soft);
+  }
+
+  /* skill groups */
+  .skill-groups{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px 40px;
+  }
+
+  .skill-group h3{
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:14px;
+    color:var(--text);
+    margin-bottom:10px;
+  }
+
+  .chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  .chip{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    color:var(--accent);
+    background:var(--accent-tint);
+    border:1px solid transparent;
+    padding:5px 10px;
+    border-radius:var(--radius);
+  }
+
+  /* competencies */
+  .competencies{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 12px;
+  }
+  .competencies span{
+    font-size:14px;
+    color:var(--text-soft);
+    position:relative;
+    padding-left:16px;
+  }
+  .competencies span::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:9px;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--accent);
+  }
+
+  /* achievements */
+  .achievements{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .achievements li{
+    position:relative;
+    padding-left:22px;
+    font-size:15.5px;
+    color:var(--text);
+    max-width:64ch;
+  }
+  .achievements li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:8px;
+    width:8px;
+    height:2px;
+    background:var(--accent);
+  }
+  .achievements .metric{
+    font-family:'JetBrains Mono', monospace;
+    color:var(--accent);
+    font-size:14px;
+  }
+
+  /* experience timeline */
+  .timeline{
+    position:relative;
+    padding-left:28px;
+  }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:5px;
+    top:6px;
+    bottom:6px;
+    width:1px;
+    background:var(--line);
+  }
+
+  .job{
+    position:relative;
+    padding-bottom:40px;
+  }
+  .job:last-child{padding-bottom:0;}
+
+  .job::before{
+    content:"";
+    position:absolute;
+    left:-28px;
+    top:5px;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:var(--paper);
+    border:2px solid var(--accent);
+  }
+
+  .job-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:6px 16px;
+    margin-bottom:4px;
+  }
+
+  .job-title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:18px;
+    color:var(--text);
+  }
+
+  .job-dates{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    color:var(--text-soft);
+    white-space:nowrap;
+  }
+
+  .job-company{
+    font-size:14px;
+    color:var(--accent);
+    margin-bottom:12px;
+  }
+
+  .job ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+
+  .job li{
+    position:relative;
+    padding-left:16px;
+    font-size:15px;
+    color:var(--text-soft);
+    max-width:64ch;
+  }
+  .job li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:9px;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:var(--line);
+  }
+
+  /* education + footer meta */
+  .edu-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:6px 16px;
+    max-width:64ch;
+  }
+  .edu-row .job-title{font-size:16px;}
+  .edu-row .job-dates{font-size:12.5px;}
+  .edu-sub{
+    font-size:14px;
+    color:var(--text-soft);
+    margin-top:4px;
+  }
+
+  .meta-foot{
+    border-top:1px solid var(--line);
+    padding-top:24px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:28px;
+    font-size:13.5px;
+    color:var(--text-soft);
+  }
+  .meta-foot strong{
+    display:block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    color:#8a9089;
+    font-weight:400;
+    margin-bottom:3px;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px){
+    .page{grid-template-columns:1fr;}
+    .sidebar{
+      position:relative;
+      height:auto;
+      padding:40px 28px;
+    }
+    main{padding:48px 28px 80px;}
+    .skill-groups{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <aside class="sidebar">
+    <div>
+      <div class="eyebrow">Résumé</div>
+      <h1>Saurav Kumar</h1>
+      <p class="role">Full-Stack Developer — React, Node.js, TypeScript &amp; AI-integrated chatbots</p>
+      <p class="focus">Currently open to <strong>Full-Stack Developer</strong>, <strong>Senior Software Engineer</strong> and <strong>Platform Engineer</strong> roles building enterprise-grade, business-critical software.</p>
+    </div>
+
+    <ul class="contact">
+      <li>
+        <span class="label">location</span>
+        <span class="value">Bengaluru, India</span>
+      </li>
+      <li>
+        <span class="label">email</span>
+        <a href="mailto:saurav.tisu@gmail.com">saurav.tisu@gmail.com</a>
+      </li>
+      <li>
+        <span class="label">phone</span>
+        <span class="value">06299485791</span>
+      </li>
+      <li>
+        <span class="label">linkedin</span>
+        <a href="https://www.linkedin.com/in/srvtisu" target="_blank" rel="noopener">linkedin.com/in/srvtisu</a>
+      </li>
+      <li>
+        <span class="label">github</span>
+        <a href="https://github.com/tisu1989" target="_blank" rel="noopener">github.com/tisu1989</a>
+      </li>
+    </ul>
+
+    <div class="sidebar-foot">Bachelor of Computer Applications, 2011</div>
+  </aside>
+
+  <main>
+
+    <section id="profile">
+      <h2>Profile</h2>
+      <p class="lede">Full-stack developer with nearly five years of experience delivering scalable enterprise and retail applications across React, Node.js, TypeScript and PHP — with a consistent focus on clean architecture, modular design and performance.</p>
+      <p class="lede">Recent work includes integrating NVIDIA's free-tier NIM LLM API into an in-app search and data-retrieval chatbot, and building a WhatsApp-based booking chatbot backed by Redis — alongside end-to-end ownership of delivery: requirement analysis, system design, development, CI/CD deployment and production support.</p>
+    </section>
+
+    <section id="competencies">
+      <h2>Core competencies</h2>
+      <div class="competencies">
+        <span>Full-stack development</span>
+        <span>Node.js / TypeScript server &amp; tooling</span>
+        <span>LLM-integrated chatbot development</span>
+        <span>REST API design &amp; integration</span>
+        <span>Clean architecture</span>
+        <span>Enterprise application development</span>
+        <span>CI/CD automation</span>
+        <span>Performance optimisation</span>
+        <span>Code quality &amp; reviews</span>
+        <span>Agile &amp; Scrum</span>
+        <span>System scalability</span>
+        <span>Database design</span>
+        <span>Cross-functional collaboration</span>
+        <span>Production support</span>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Technical skills</h2>
+      <div class="skill-groups">
+        <div class="skill-group">
+          <h3>Languages &amp; frameworks</h3>
+          <div class="chips">
+            <span class="chip">React</span>
+            <span class="chip">Node.js</span>
+            <span class="chip">TypeScript</span>
+            <span class="chip">PHP</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">HTML / CSS</span>
+            <span class="chip">Angular.js (basic)</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>AI &amp; tooling</h3>
+          <div class="chips">
+            <span class="chip">NVIDIA NIM (free-tier LLM API)</span>
+            <span class="chip">WhatsApp chatbot integration</span>
+            <span class="chip">In-app search &amp; data-retrieval chatbots</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Front-end &amp; UI</h3>
+          <div class="chips">
+            <span class="chip">Material UI</span>
+            <span class="chip">Tailwind</span>
+            <span class="chip">Redux</span>
+            <span class="chip">JSX / TSX</span>
+            <span class="chip">jQuery</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Back-end &amp; APIs</h3>
+          <div class="chips">
+            <span class="chip">REST APIs</span>
+            <span class="chip">Web API</span>
+            <span class="chip">Electron.js</span>
+            <span class="chip">Firebase</span>
+            <span class="chip">Supabase</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Databases</h3>
+          <div class="chips">
+            <span class="chip">SQL Server</span>
+            <span class="chip">MySQL</span>
+            <span class="chip">MongoDB</span>
+            <span class="chip">MS Access</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Tools &amp; platforms</h3>
+          <div class="chips">
+            <span class="chip">Git</span>
+            <span class="chip">Jenkins</span>
+            <span class="chip">Postman</span>
+            <span class="chip">VS Code</span>
+            <span class="chip">SSMS</span>
+            <span class="chip">Redis</span>
+            <span class="chip">cronjob.org</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="achievements">
+      <h2>Achievements</h2>
+      <ul class="achievements">
+        <li>Integrated NVIDIA's free-tier NIM LLM API into an in-app chatbot, enabling natural-language search and data retrieval for end users.</li>
+        <li>Built a WhatsApp-based booking chatbot backed by Redis for session state and cronjob.org for scheduled reminders.</li>
+        <li>Reduced production issues by <span class="metric">~40%</span> through structured code reviews and clean-code enforcement.</li>
+        <li>Automated CI/CD pipelines using Jenkins and Git, enabling faster and more reliable releases.</li>
+        <li>Delivered multiple enterprise-grade applications at scale, earning recognition for ownership of complex modules.</li>
+        <li>Awarded Best Employee at Wipro for sustained performance and business impact.</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="timeline">
+        <div class="job">
+          <div class="job-head">
+            <span class="job-title">WhatsApp Booking Chatbot</span>
+          </div>
+          <div class="job-company">Personal project</div>
+          <ul>
+            <li>Built a conversational chatbot on the WhatsApp channel to handle customer interactions end-to-end.</li>
+            <li>Used Redis for session state, message queuing and fast lookups, keeping conversations responsive under repeated back-and-forth.</li>
+            <li>Integrated NVIDIA's free-tier hosted LLM API (NIM) to generate natural-language responses without a paid inference bill.</li>
+            <li>Used cronjob.org to schedule recurring jobs — reminders and follow-up triggers — without needing a dedicated server process.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="timeline">
+
+        <div class="job">
+          <div class="job-head">
+            <span class="job-title">Full Stack Developer</span>
+            <span class="job-dates">Apr 2023 — Present</span>
+          </div>
+          <div class="job-company">Cresc DataSoft, Bengaluru</div>
+          <ul>
+            <li>Delivered scalable enterprise and retail applications using React, Angular.js, Node.js, TypeScript, PHP and REST services, following clean-code and SOLID principles.</li>
+            <li>Integrated NVIDIA's free-tier NIM LLM API into an in-app chatbot for natural-language search and data retrieval, and built a WhatsApp-based booking chatbot backed by Redis.</li>
+            <li>Owned full-lifecycle development across front-end, back-end, databases and desktop apps built with Electron.js.</li>
+            <li>Optimised system architecture and application performance to improve user experience and production stability.</li>
+            <li>Built and maintained CI/CD pipelines with Git and Jenkins, streamlining deployments and release consistency.</li>
+            <li>Reviewed 50+ pull requests, driving practices that reduced production defects by ~40%.</li>
+            <li>Partnered with product, QA and business teams to resolve critical issues and ship high-quality releases.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <span class="job-title">Senior Associate</span>
+            <span class="job-dates">Mar 2021 — Apr 2023</span>
+          </div>
+          <div class="job-company">Wipro</div>
+          <ul>
+            <li>Contributed to Scrum ceremonies — sprint planning, grooming, stand-ups and reviews — to ensure on-time feature delivery.</li>
+            <li>Designed and developed web applications using PHP, JavaScript, HTML, CSS and SQL Server, focused on scalability and performance.</li>
+            <li>Implemented Repository Pattern–based REST APIs, improving maintainability and separation of concerns.</li>
+            <li>Built and optimised CRUD operations for efficient, secure data exchange between UI and database.</li>
+            <li>Worked closely with cross-functional teams to improve application functionality and data accuracy.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="edu-row">
+        <span class="job-title">Bachelor of Computer Applications (BCA)</span>
+        <span class="job-dates">2011</span>
+      </div>
+      <p class="edu-sub">Dr. Zakir Hussain Institute, Patna</p>
+    </section>
+
+    <section id="certifications">
+      <h2>Certifications</h2>
+      <div class="edu-row">
+        <span class="job-title">Claude 101</span>
+        <span class="job-dates">Mar 2026</span>
+      </div>
+      <p class="edu-sub">Anthropic — Certificate of completion</p>
+      <div class="edu-row" style="margin-top:18px;">
+        <span class="job-title">Claude Code in Action</span>
+        <span class="job-dates">Mar 2026</span>
+      </div>
+      <p class="edu-sub">Anthropic — Certificate of completion</p>
+    </section>
+
+    <section id="meta">
+      <div class="meta-foot">
+        <div>
+          <strong>Languages</strong>
+          English &amp; Hindi
+        </div>
+        <div>
+          <strong>Soft skills</strong>
+          Analytical problem solving, technical leadership, time management, collaboration, ownership mindset, critical thinking
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>
